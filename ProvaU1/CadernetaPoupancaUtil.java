@@ -1,8 +1,5 @@
 package ProvaU1;
 
-import java.util.Scanner;
-import java.util.Arrays;
-
 public class CadernetaPoupancaUtil {
     public static void main(String[] args) throws Exception {
         CadernetaPoupanca[] c1 = new CadernetaPoupanca[7];
