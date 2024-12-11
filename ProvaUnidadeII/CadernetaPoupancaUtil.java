@@ -1,90 +1,101 @@
 package ProvaUnidadeII;
 
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.Queue;
+import java.util.ArrayDeque;
 
 public class CadernetaPoupancaUtil {
-    public static void main(String[] args) {
-        ArrayList<CadernetaPoupanca> cadernetas = new ArrayList<CadernetaPoupanca>();
-        cadernetas.add(new CadernetaPoupanca("Erica", 21, 100, 80));
-        cadernetas.add(new CadernetaPoupanca("Alana", 30, 230, 10));
-        cadernetas.add(new CadernetaPoupanca("Laura", 24, 1000, 30));
-        cadernetas.add(new CadernetaPoupanca("Laina", 29, 300, 90));
-        cadernetas.add(new CadernetaPoupanca("Jean", 14, 1000, 20));
-        cadernetas.add(new CadernetaPoupanca("Joao", 22, 1440, 30));
-        cadernetas.add(new CadernetaPoupanca("Bruna", 24, 7900, 40));
+       public static void main(String[] args) {
+        LinkedList<CadernetaPoupanca> cadernetas = new LinkedList<CadernetaPoupanca>();
 
-        System.out.println(cadernetas.size());
-        System.out.println(cadernetas);
+        cadernetas.add(new CadernetaPoupanca("Alana", 22, 230));
+        cadernetas.add(new CadernetaPoupanca("Erica", 30, 400));
+        cadernetas.add(new CadernetaPoupanca("Joao", 6, 300));
+        cadernetas.add(new CadernetaPoupanca("Vanessa", 9, 0));
+        cadernetas.add(new CadernetaPoupanca("Laura", 28, 650));
+        cadernetas.add(new CadernetaPoupanca("Jean", 25, 300));
+        cadernetas.add(new CadernetaPoupanca("Luiza", 22, 500));
 
         Scanner escolha = new Scanner(System.in);
         String opcao = "";
 
         while (!opcao.equalsIgnoreCase("d")) {
-
-            System.out.println("Escolha uma opção(a - d): ");
-            System.out.println("a) Atualização do rendimento. ");
-            System.out.println("b) Listagem dos nomes dos titulares e saldos das cadernetas: ");
-            System.out.println("c) Listagem de depósito inicial, dia de aniversário e saldo do titular: ");
-            System.out.println("d) Encerrar operação... ");
+            System.out.println("");
+            System.out.println("ESCOLHA UMA OPÇÃO:");
+            System.out.println("a) Atualização do rendimento acumulado: ");
+            System.out.println("b) Listagem de titulares com base na aniversário: ");
+            System.out.println("c) Informações do titular: ");
+            System.out.println("d) Encerrar aplicação: ");
             opcao = escolha.nextLine();
+            
 
             switch (opcao) {
                 case "a":
                     System.out.println("Digite o nome do titular: ");
                     String titular = escolha.nextLine();
-                    System.out.println("Digite o valor do rendimento: ");
+                    System.out.println("Digite a taxa percentual de rendimento: ");
                     int valor = escolha.nextInt();
                     escolha.nextLine();
 
                     for (CadernetaPoupanca caderneta : cadernetas) {
                         if (caderneta.getTitular().equalsIgnoreCase(titular)) {
-                            double saldoAnterior = caderneta.getDepositoInicial() + caderneta.getRendimentoAcumulado();
-                            System.out.println("Saldo antes da atualização: " + saldoAnterior);
+                            System.out.println("Saldo anterior: " + caderneta.getSaldo());
 
-                            caderneta.atualizarRendimento(valor);
-                            double saldoAtual = caderneta.getDepositoInicial() + caderneta.getRendimentoAcumulado();
-                            System.out.println("Saldo atual: " + saldoAtual);
-                            break;
+                            System.out.println("Saldo atual: " + (caderneta.getSaldo() + (valor)));
                         }
                     }
                     break;
 
                 case "b":
-                    System.out.println("Digite a data de aniversário:");
-                    int data = escolha.nextInt();
+                    System.out.println("Digite o dia do aniversário desejado: ");
+                    int aniversario = escolha.nextInt();
                     escolha.nextLine();
+                    System.out.println("Titulares com a data requerida: ");
                     for (CadernetaPoupanca caderneta : cadernetas) {
-                        if (caderneta.getDiaAniversario() == data) {
-                            System.out.println("Titular:" + caderneta.getTitular());
-                            System.out.println("Saldo:" + caderneta.getSaldo());
+                        if (caderneta.getDiaAniversario() == (aniversario)) {
+                            System.out.println(
+                                    "Nome: " + caderneta.getTitular() + ", " + "Saldo: " + caderneta.getSaldo());
                         }
                     }
                     break;
 
                 case "c":
-                    System.out.println("Digite o nome do titular:");
-                    String nome = escolha.nextLine();
+                    System.out.println("Digite o nome do titular: ");
+                    titular = escolha.nextLine();
                     for (CadernetaPoupanca caderneta : cadernetas) {
-                        if (caderneta.getTitular().equalsIgnoreCase(nome)) {
-                            System.out.println("Depósito inicial: " + caderneta.getDepositoInicial());
-                            System.out.println("Dia de aniversário: " + caderneta.getDiaAniversario());
-                            System.out.println("Saldo: " + (caderneta.getDepositoInicial() + caderneta.getRendimentoAcumulado()));
+                        if (caderneta.getTitular().equalsIgnoreCase(titular)) {
+                            System.out.println("Deposito inicial: " + caderneta.getDepositoInicial());
+                            System.out.println("Dia do aniversário: " + caderneta.getDiaAniversario());
+                            System.out.println("Saldo da caderneta: " + caderneta.getSaldo());
                         }
                     }
+
                     break;
 
                 case "d":
-                    System.out.println("Encerrando aplicação.....");
+                    System.out.println("Encerrando aplicação...");
+                    Set<Integer> diaAniversario = new HashSet<>();
+                    Queue<String> filaTitulares = new ArrayDeque<>();
+                    for(CadernetaPoupanca caderneta: cadernetas) {
+                        diaAniversario.add(caderneta.getDiaAniversario());
+                        if(caderneta.getSaldo() == 0) {
+                            filaTitulares.add(caderneta.getTitular());
+                        }
+                       
+                    }
+                    System.out.println("Titulares com saldo zero: " + filaTitulares);
+                    System.out.println("Dia aniversários distintos: " + diaAniversario);
                     break;
 
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opção inválida, tente novamente!!!");
                     break;
             }
         }
         escolha.close();
-
     }
-
 }
