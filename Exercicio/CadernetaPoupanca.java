@@ -30,6 +30,10 @@ public class CadernetaPoupanca {
     public double getRendimentoAcumulado() {
     return rendimentoAcumulado;
     }
+
+    public void setRendimentoAcumulado(double rendimentoAcumulado) {
+        this.rendimentoAcumulado = rendimentoAcumulado;
+    }
    
     // atualização de rendimento acumulado considerando-se saldo atualizado e
     // taxa percentual de rendimento
@@ -51,6 +55,5 @@ public class CadernetaPoupanca {
     public double getTaxaRendimentoAcumulada() {
     return this.rendimentoAcumulado / getSaldo() * 100;
     }
-   
 }
    
