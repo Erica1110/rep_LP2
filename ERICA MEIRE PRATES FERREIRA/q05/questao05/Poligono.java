@@ -1,4 +1,4 @@
-package q05;
+package questao05;
 
 public class Poligono {
     private int lado1;

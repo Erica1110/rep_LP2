@@ -1,4 +1,4 @@
-package q05;
+package questao05;
 
 import java.util.ArrayList;
 import java.util.List;
