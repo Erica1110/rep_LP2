@@ -29,16 +29,16 @@ public class PoligonoUtil {
 
             switch (opcao) {
                 case "a":
-                    for (Poligono p : poligonos) {
-                        System.out.println(p);
+                    for (Poligono poligono : poligonos) {
+                        System.out.println(poligono);
                     }
                     break;
 
                 case "b":
                     Poligono maior = null;
-                    for (Poligono p : poligonos) {
-                        if (maior == null || p.getPerimetro() > maior.getPerimetro()) {
-                            maior = p;
+                    for (Poligono poligono : poligonos) {
+                        if (maior == null || poligono.getPerimetro() > maior.getPerimetro()) {
+                            maior = poligono;
                         }
                     }
                     if (maior != null) {
@@ -48,9 +48,9 @@ public class PoligonoUtil {
 
                 case "c":
                     Poligono menor = null;
-                    for (Poligono p : poligonos) {
-                        if (menor == null || p.getPerimetro() < menor.getPerimetro()) {
-                            menor = p;
+                    for (Poligono poligono : poligonos) {
+                        if (menor == null || poligono.getPerimetro() < menor.getPerimetro()) {
+                            menor = poligono;
                         }
                     }
                     if (menor != null) {
@@ -62,9 +62,9 @@ public class PoligonoUtil {
                     System.out.println("Digite a quantidade de lados desejada:");
                     int qtdLados = scanner.nextInt();
                     scanner.nextLine();
-                    for (Poligono p : poligonos) {
-                        if (p.getClassificacao().equalsIgnoreCase(getNomePoligono(qtdLados))) {
-                            System.out.println(p);
+                    for (Poligono poligono : poligonos) {
+                        if (poligono.getClassificacao().equalsIgnoreCase(getNomePoligono(qtdLados))) {
+                            System.out.println(poligono);
                         }
                     }
                     break;
@@ -73,8 +73,8 @@ public class PoligonoUtil {
                     int total = poligonos.size();
                     int triangulos = 0, quadrilateros = 0, pentagonos = 0, hexagonos = 0, heptagonos = 0;
 
-                    for (Poligono p : poligonos) {
-                        switch (p.getClassificacao()) {
+                    for (Poligono poligono : poligonos) {
+                        switch (poligono.getClassificacao()) {
                             case "Triângulo": triangulos++; break;
                             case "Quadrilátero": quadrilateros++; break;
                             case "Pentágono": pentagonos++; break;

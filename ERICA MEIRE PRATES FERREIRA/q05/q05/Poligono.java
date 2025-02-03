@@ -28,7 +28,7 @@ public class Poligono {
 
     public Poligono(int lado1, int lado2, int lado3, int lado4, int lado5, int lado6, int lado7) {
         if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0 || lado4 < 0 || lado5 < 0 || lado6 < 0 || lado7 < 0) {
-            throw new IllegalArgumentException("Os lados devem ser positivos.");
+            throw new IllegalArgumentException("Os lados devem ser positivos");
         }
         this.lado1 = lado1;
         this.lado2 = lado2;
@@ -89,7 +89,7 @@ public class Poligono {
         if (lado7 > 0) resultado += lado7 + ", ";
 
         if (!resultado.isEmpty()) {
-            resultado = resultado.substring(0, resultado.length() - 2); // Remove a última vírgula e espaço
+            resultado = resultado.substring(0, resultado.length() - 2); 
         }
 
         return resultado;
