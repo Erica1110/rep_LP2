@@ -34,20 +34,14 @@ public class ContatoUtil {
                 int codigoPais = scanner.nextInt();
                 scanner.nextLine();
                 listarContatosPorCodigoPais(contatos, codigoPais);
-                System.out.println("Deseja listar contatos por outro código telefônico de país? (S/N)");
-                if (!scanner.nextLine().equalsIgnoreCase("S")) {
-                    break;
-                }
+               break;
             }
 
             while (opcao.equals("b")) {
                 System.out.println("Digite o sufixo do e-mail (ex: gmail.com):");
                 String sufixoEmail = scanner.nextLine();
                 listarContatosPorEmail(contatos, sufixoEmail);
-                System.out.println("Deseja listar contatos por outro sufixo de e-mail? (S/N)");
-                if (!scanner.nextLine().equalsIgnoreCase("S")) {
-                    break;
-                }
+               break;
             }
 
             while (opcao.equals("c")) {
