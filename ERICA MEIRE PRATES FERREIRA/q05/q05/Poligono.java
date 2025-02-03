@@ -73,6 +73,10 @@ public class Poligono {
         }
     }
 
+    public int[] getComprimentosLados() {
+        return new int[] {lado1, lado2, lado3, lado4, lado5, lado6, lado7};
+    }
+
     @Override
     public String toString() {
         return getClassificacao() + " com lados de comprimento " + listarLados();
