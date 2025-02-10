@@ -5,7 +5,7 @@ public class CadernetaPoupancaUtil {
         CadernetaPoupanca[] c1 = new CadernetaPoupanca[7];
 
         c1[0] = new CadernetaPoupanca("Eica", 11, 300.0, 1.5);
-        c1[1] = new CadernetaPoupanca("Maria",30 , 400.0, 2.5);
+        c1[1] = new CadernetaPoupanca("Adriana",30 , 400.0, 2.5);
         c1[2] = new CadernetaPoupanca("Carlos", 15, 500.0, 3.5);
         c1[3] = new CadernetaPoupanca("Ana", 19, 250.0, 3.5);
         c1[4] = new CadernetaPoupanca("Joao", 21, 100.0, 3.5);
