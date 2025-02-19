@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="ProvaU1"/>
+	<classpathentry kind="src" path="ERICA MEIRE PRATES FERREIRA/questao08"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

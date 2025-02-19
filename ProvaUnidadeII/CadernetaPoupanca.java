@@ -1,5 +1,3 @@
-package ProvaUnidadeII;
-
 public class CadernetaPoupanca {
   private String titular;               
   private int diaAniversario;           

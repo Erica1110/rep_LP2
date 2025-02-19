@@ -1,4 +1,3 @@
-package questao08;
 
 import java.util.LinkedList;
 import java.util.Scanner;

@@ -1,5 +1,3 @@
-package questao08;
-
 public class Contato {
     private String nome;
     private String sobrenome;

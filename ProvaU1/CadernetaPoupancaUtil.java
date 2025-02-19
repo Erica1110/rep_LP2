@@ -1,4 +1,3 @@
-package ProvaU1;
 
 public class CadernetaPoupancaUtil {
     public static void main(String[] args) throws Exception {
@@ -27,5 +26,15 @@ public class CadernetaPoupancaUtil {
         System.out.println(c1[2].getDiaAniversario());
         System.out.println(c1[2].getSaldo());
         System.out.println(c1[2].getTaxaRendimentoAcumulada());
+        
+        System.out.println("---------------------------------------------------------");
+
+        System.out.println(c1[4].getTitular());
+        System.out.println(c1[4].getRendimentoAcumulado());
+        System.out.println(c1[4].getDiaAniversario());
+        System.out.println(c1[4].getSaldo());
+        System.out.println(c1[4].getTaxaRendimentoAcumulada());
+        
+        
     }
 }

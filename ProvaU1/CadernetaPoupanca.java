@@ -1,4 +1,3 @@
-package ProvaU1;
 
 import java.util.Random;
 
